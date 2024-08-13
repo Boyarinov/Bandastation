@@ -20,6 +20,7 @@
 	///If it's a special named plant, set this to true to prevent dead-name overriding.
 	var/custom_plant_name = FALSE
 	var/list/static/random_plant_states
+	var/obj/item/storage = null
 
 /obj/item/kirbyplants/Initialize(mapload)
 	. = ..()
@@ -29,6 +30,27 @@
 	if(icon_state != base_icon_state && icon_state != "plant-25") //mapedit support
 		base_icon_state = icon_state
 	update_appearance()
+	register_context()
+
+	var/trash_list = list(
+		/obj/item/trash/can,
+		/obj/item/trash/candy,
+		/obj/item/trash/cheesie,
+		/obj/item/trash/chips,
+		/obj/item/trash/pistachios,
+		/obj/item/trash/popcorn,
+		/obj/item/trash/raisins,
+		/obj/item/trash/sosjerky,
+		/obj/item/trash/flare,
+		/obj/item/trash/candle,
+	)
+	var/trash_loot = pick(trash_list)
+
+	storage = pick(
+		85; null,
+		10; new trash_loot(),
+		5; new /obj/item/reagent_containers/pill/maintenance()
+	)
 
 /obj/item/kirbyplants/update_name(updates)
 	. = ..()

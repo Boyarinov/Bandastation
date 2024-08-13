@@ -25,6 +25,7 @@
 #include "mapping/_mapping.dme"
 #include "medical/_medical.dme"
 #include "pixel_shift/_pixel_shift.dme"
+#include "plant_storage/_plant_storage.dme"
 #include "ru_jobs/_ru_jobs.dme"
 #include "translations/_translations.dme"
 #include "tts/_tts.dme"

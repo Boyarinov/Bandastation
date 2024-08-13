@@ -1,0 +1,3 @@
+#include "_plant_storage.dm"
+
+#include "code/kirbyplants.dm"
